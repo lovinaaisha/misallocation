@@ -100,6 +100,7 @@ The pipeline covers:
 
 7) Run Stata regressions and export outputs (On Progress)
    Open the `stata/` folder and run in order
+</details>
 
 ## Requirements
 - **WRDS access**
