@@ -54,6 +54,52 @@ The pipeline covers:
 - [09_regression.do](stata/09_regression.do) — main regressions + exports
 </details>
 
+## What's in here & instructions
+
+**Document types**
+- `.py` → Python scripts
+- `.sh` → shell/HPC job wrappers
+- `.log` → run logs
+- `.csv` / `.parquet` → data files *(gitignored)*
+
+<details open>
+  <summary><b>How to run (end-to-end)</b></summary>
+
+1) **Retrieve data from WRDS**
+   - **Small firms:**  
+     `python python/01_orbis_batch_small.py`  
+     or `qsub python/01_orbis_batch_small.sh`
+   - **Medium & large firms:**  
+     `python python/02_orbis_batch_medlarge.py`  
+     or `qsub python/02_orbis_batch_medlarge.sh`
+   - *(Optional, last step)* **Compustat batch:**  
+     `python python/06_compustat_batch.py`  
+     or `qsub python/06_compustat_batch.sh`
+
+2) **Append yearly Parquet splits**  
+   `python python/03_append_parquet.py`  
+   or `qsub python/03_append_parquet.sh`
+
+3) **Merge & clean (build analysis dataset)**  
+   `python python/04_clean_db.py`  
+   or `qsub python/04_clean_db.sh`
+
+4) **(HPC quick commands)** — run from your `scratch` directory
+   ```bash
+   chmod +x <filename>.sh
+   qsub <filename>.sh
+   qstat -u <username>
+   tail -F <jobname>.log
+
+5) **Export parquet to .csv**
+   `python python/05_parquet_to_csv.py`
+   
+6) Download to local computer
+   Using PuTTY/PSCP (Windows): `pscp -r <user>@<cluster>:/path/to/project/data ./data`
+
+7) Run Stata regressions and export outputs (On Progress)
+   Open the `stata/` folder and run in order
+
 ## Requirement
 - **WRDS access**
 - **Python 3.10+** (`pandas`/`polars`, `wrds`, `pyarrow`, `duckdb`)
