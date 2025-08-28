@@ -25,7 +25,7 @@ The pipeline covers:
 ## Repository structure
 xxxxxxxx
 
-## Prerequisites
+## Requirement
 - **WRDS access**
 - **Python 3.10+** (`pandas`/`polars`, `wrds`, `pyarrow`, `duckdb`)
 - **Stata 16+** with:
