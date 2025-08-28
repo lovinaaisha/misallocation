@@ -61,6 +61,7 @@ The pipeline covers:
 - `.sh` → shell/HPC job wrappers
 - `.log` → run logs
 - `.csv` / `.parquet` → data files *(gitignored)*
+- `.do` → Stata dofile
 
 <details open>
   <summary><b>How to run (end-to-end)</b></summary>
