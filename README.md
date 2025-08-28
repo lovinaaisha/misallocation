@@ -2,7 +2,7 @@
 Author: Lovina Aisha M. P., Columbia University - Last Updated: 08/15/2025. On-going project. 
 
 ## Research overview:
-This thesis quantifies how COVID-19 reshaped the link between financial frictions and real-input misallocation across 24 emerging markets (by MSCI category)—and the TFP at stake. It integrates Whited–Zhao (2021) financial wedges with Hsieh–Klenow (2009) real wedges (via Cusolito et al., 2024) in a structural wedge-decomposition, then estimates FE/DiD pass-through and TFP-loss comparing 2010–19 to 2020–22. 
+This study quantifies how COVID-19 reshaped the link between financial frictions and real-input misallocation across 24 emerging markets (by MSCI category)—and the TFP at stake. It integrates Whited–Zhao (2021) financial wedges with Hsieh–Klenow (2009) real wedges (via Cusolito et al., 2024) in a structural wedge-decomposition, then estimates FE/DiD pass-through and TFP-loss comparing 2010–19 to 2020–22. 
 
 ## Methods and data:
 * **Methods:** Structural wedges + panel FE/DiD to estimate (i) COVID shifts in wedges, (ii) finance to real sector pass-through, and (iii) implied TFP losses.
