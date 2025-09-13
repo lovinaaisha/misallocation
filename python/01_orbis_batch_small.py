@@ -29,7 +29,7 @@ iso_codes = ['BR','CL','CN','CO','CZ','EG','GR','HU','IN','ID','KR','KW',
 static_vars = [ 'name_internat','name_native','akaname',
                 'slegalf','legalfrm','dateinc','dateinc_year','dateinc_char',
                 'lei_lei','sd_ticker','sd_isin','city_internat','city_native',
-                'country','region_in_country','bvdid','category_of_company','ctryiso' ]
+                'country','region_in_country','bvdid','category_of_company','contact_ctryiso' ]
 
 # 3) Sector and activities vars FROM ob_industry_classifications
 sector_vars = [ 'major_sector','nace2_main_section','naceccod2','nacecdes2',
@@ -44,7 +44,7 @@ fin_vars    = [ 'closdate','filing_type','orig_currency','exchrate',
                 'av','ncli','oncl','culi','ocli','tshf','_315506','_315507',
                 '_315522', 'cost', 'depr', 'expt', '_315501', '_315502', 
                 'fiex', 'shfd', 'osfd', 'tshf', 'cash', 'ebta', 'oppl', 'pl', 
-                'has_cashflow_tables' ]
+                'fdpp', 'fdpc', 'fcdp', '_315524', '_315525', '_315523']
 
 # Pre-compute column lists & ISO list
 iso_list  = ",".join(f"'{c}'" for c in iso_codes)
@@ -70,9 +70,9 @@ FROM {schema}.ob_w_ind_g_fins_cfl_usd_{suffix}   AS f
   JOIN {schema}.ob_industry_classifications_{suffix} AS p
     ON f.bvdid = p.bvdid
 WHERE
-  c.ctryiso IN ({iso_list})
+  c.contact_ctryiso IN ({iso_list})
   AND f.closdate BETWEEN '{start}' AND '{end}'
-ORDER BY c.ctryiso, c.bvdid, f.closdate
+ORDER BY c.contaot_ctryiso, c.bvdid, f.closdate
 """
 
  # Loop over size + time windows + write into scratch
