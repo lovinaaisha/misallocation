@@ -32,7 +32,7 @@ static_vars = [
     'name_internat','name_native','akaname',
     'slegalf','legalfrm','dateinc','dateinc_year','dateinc_char',
     'lei_lei','sd_ticker','sd_isin','city_internat','city_native',
-    'country','region_in_country','bvdid','category_of_company','ctryiso'
+    'country','region_in_country','bvdid','category_of_company','contact_ctryiso'
 ]
 
 # 3) Sector and activities vars FROM ob_industry_classifications
@@ -50,7 +50,7 @@ fin_vars    = [ 'closdate','filing_type','orig_currency','exchrate',
                 'av','ncli','oncl','culi','ocli','tshf','_315506','_315507',
                 '_315522', 'cost', 'depr', 'expt', '_315501', '_315502', 
                 'fiex', 'shfd', 'osfd', 'tshf', 'cash', 'ebta', 'oppl', 'pl', 
-                'has_cashflow_tables']
+                'fdpp', 'fdpc', 'fcdp', '_315524', '_315525', '_315523']
 
 # 5) Define sub-periods as (start_date, end_date) tuples
 periods = [
@@ -75,9 +75,9 @@ SELECT {c_cols}, {p_cols}, {f_cols}
 FROM {schema}.ob_w_ind_g_fins_cfl_usd_{suffix}   AS f
   JOIN {schema}.ob_w_company_id_table_{suffix}   AS c ON f.bvdid = c.bvdid
   JOIN {schema}.ob_industry_classifications_{suffix}   AS p ON f.bvdid = p.bvdid
-WHERE c.ctryiso IN ({iso_list})
+WHERE c.contact_ctryiso IN ({iso_list})
   AND f.closdate BETWEEN '2005-01-01' AND '2024-12-31'
-ORDER BY c.ctryiso, c.bvdid, f.closdate
+ORDER BY c.contact_ctryiso, c.bvdid, f.closdate
 """
 
 # Loop over Orbis schemas & suffixes
