@@ -3,7 +3,7 @@ Misallocating Finance, Misallocating Factors: Firm-Level Evidence from Emerging 
 
 Author: Lovina Putri  
 Date Created: 14/06/2025  
-Last Updated: 17/07/2025  
+Last Updated: 13/09/2025  
 Project: ORBIS EM Data Fetch and Cleaning from WRDS for large and medium firms
 Version: 4
 '''
