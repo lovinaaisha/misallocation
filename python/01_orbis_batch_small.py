@@ -72,7 +72,7 @@ FROM {schema}.ob_w_ind_g_fins_cfl_usd_{suffix}   AS f
 WHERE
   c.contact_ctryiso IN ({iso_list})
   AND f.closdate BETWEEN '{start}' AND '{end}'
-ORDER BY c.contaot_ctryiso, c.bvdid, f.closdate
+ORDER BY c.contact_ctryiso, c.bvdid, f.closdate
 """
 
  # Loop over size + time windows + write into scratch
